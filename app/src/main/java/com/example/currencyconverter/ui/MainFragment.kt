@@ -90,6 +90,7 @@ class MainFragment : Fragment() {
             toCurrency.setSelection(content.toCurrencyPos)
 
             amountLayout.error = content.amountError
+            amountLayout.isErrorEnabled = content.amountError != null
         }
     }
 
