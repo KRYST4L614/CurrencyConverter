@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CurrencyConverter</string>
+    <string name="default_amount">100</string>
+    <string name="convert_button">Convert</string>
+    <string name="from_title">From</string>
+    <string name="to_title">To</string>
+    <string name="back_button">Go back</string>
+    <string name="menu_info_title">Info</string>
+    <string name="amount_hint">Enter amount here</string>
+    <string name="retry">Retry</string>
+    <string name="result">%1$s %2$s = %3$s %4$s</string>
+    <string name="network_error">Failed to get data from the server</string>
+    <string name="amount_error">Amount can not be empty</string>
+</resources>
