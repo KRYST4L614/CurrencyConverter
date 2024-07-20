@@ -38,8 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"
         android:hint="@string/amount_hint"
-        app:errorIconDrawable="@null"
         android:textColorHint="?android:textColorHint"
+        app:errorIconDrawable="@null"
         app:layout_constraintBottom_toTopOf="@id/from_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -50,33 +50,13 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:gravity="center"
-            android:textColorHint="@android:color/transparent"
             android:hint="@string/amount_hint"
             android:importantForAutofill="no"
             android:inputType="numberDecimal"
+            android:textColorHint="@android:color/transparent"
             android:textSize="20sp"
             tools:ignore="LabelFor" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <!--    <EditText-->
-    <!--        android:id="@+id/amount"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:paddingHorizontal="32dp"-->
-    <!--        android:layout_marginVertical="20dp"-->
-    <!--        android:background="@null"-->
-    <!--        android:ellipsize="end"-->
-    <!--        android:drawableEnd="@drawable/ic_edit"-->
-    <!--        android:gravity="center"-->
-    <!--        android:importantForAutofill="no"-->
-    <!--        android:inputType="numberDecimal"-->
-    <!--        android:text="@string/default_amount"-->
-    <!--        android:textSize="22sp"-->
-    <!--        android:drawableTint="?attr/colorOnBackground"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/from_title"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        tools:ignore="LabelFor" />-->
 
     <TextView
         android:id="@+id/from_title"
@@ -93,8 +73,8 @@
         android:id="@+id/from_currency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:layout_marginVertical="20dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/swap_button"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,8 +107,8 @@
         android:id="@+id/to_currency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginVertical="20dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/swap_button"
