@@ -7,14 +7,14 @@ P.S. Специально не стал прятать apikey, чтобы при
 ********* 
 
 - Стек использованных технологий:
-	- Clean Architecture
+  - Clean Architecture
   - Cicerone (навигация)
-	- MVVM
-	- Dagger2
-	- Retrofit2
-	- Coroutines
-	- LiveData
-	- Views
+  - MVVM
+  - Dagger2
+  - Retrofit2
+  - Coroutines
+  - LiveData
+  - Views
  
 ********* 
 
