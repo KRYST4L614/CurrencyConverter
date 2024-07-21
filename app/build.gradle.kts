@@ -57,6 +57,11 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.com.squareup.okhttp3.logging.interceptor)
     implementation(libs.androidx.fragment.ktx)
-    implementation(libs.com.squareup.retrofit2.scalars)
     implementation(libs.com.squareup.retrofit2.gson)
+
+    implementation(project(":feature:choosecurrency"))
+    implementation(project(":feature:result"))
+    implementation(project(":shared:fragmentdependencies"))
+    implementation(project(":shared:currency"))
+    implementation(project(":shared:resourceprovider"))
 }

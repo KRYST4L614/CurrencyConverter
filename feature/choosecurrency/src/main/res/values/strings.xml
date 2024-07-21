@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="amount_hint">Enter amount here</string>
+    <string name="default_amount">100</string>
+    <string name="convert_button">Convert</string>
+    <string name="from_title">From</string>
+    <string name="to_title">To</string>
+    <string name="amount_error">Amount can not be empty</string>
+</resources>

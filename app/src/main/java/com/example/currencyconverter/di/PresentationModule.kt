@@ -2,9 +2,9 @@ package com.example.currencyconverter.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.currencyconverter.choosecurrency.presentation.ChooseCurrencyViewModel
+import com.example.currencyconverter.feature.result.presentation.ResultViewModel
 import com.example.currencyconverter.presentation.ViewModelFactory
-import com.example.currencyconverter.presentation.mainfragment.MainViewModel
-import com.example.currencyconverter.presentation.resultfragment.ResultViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -14,8 +14,8 @@ interface PresentationModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(MainViewModel::class)
-    fun bindsMainViewModel(viewModel: MainViewModel): ViewModel
+    @ViewModelKey(ChooseCurrencyViewModel::class)
+    fun bindsMainViewModel(viewModel: ChooseCurrencyViewModel): ViewModel
 
     @Binds
     @IntoMap

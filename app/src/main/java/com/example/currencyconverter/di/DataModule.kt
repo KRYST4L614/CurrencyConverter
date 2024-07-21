@@ -1,12 +1,9 @@
 package com.example.currencyconverter.di
 
-import com.example.currencyconverter.data.CurrencyRepositoryImpl
-import com.example.currencyconverter.data.CurrencyService
-import com.example.currencyconverter.data.mappers.CurrenciesMapper
-import com.example.currencyconverter.data.mappers.CurrenciesMapperImpl
-import com.example.currencyconverter.domain.CurrencyRepository
+import com.example.currencyconverter.shared.currency.data.CurrencyRepositoryImpl
+import com.example.currencyconverter.shared.currency.data.CurrencyService
+import com.example.currencyconverter.shared.currency.domain.CurrencyRepository
 import com.google.gson.GsonBuilder
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +11,6 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -49,7 +45,6 @@ interface DataModule {
             return Retrofit.Builder()
                 .client(client)
                 .baseUrl(BASE_URL)
-                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(
                     GsonConverterFactory.create(
                         GsonBuilder().setLenient().create()
@@ -66,13 +61,12 @@ interface DataModule {
 
         @Provides
         fun provideCurrencyRepository(
-            service: CurrencyService,
-            mapper: CurrenciesMapper
+            service: CurrencyService
         ): CurrencyRepository {
-            return CurrencyRepositoryImpl(Dispatchers.IO, service, mapper)
+            return CurrencyRepositoryImpl(
+                Dispatchers.IO,
+                service
+            )
         }
     }
-
-    @Binds
-    fun bindsCurrencyMapper(impl: CurrenciesMapperImpl): CurrenciesMapper
 }

@@ -21,4 +21,11 @@ dependencyResolutionManagement {
 
 rootProject.name = "CurrencyConverter"
 include(":app")
+include(":feature:result")
+include(":feature:choosecurrency")
+include(":shared:animations")
+include(":shared:fragmentdependencies")
+include(":shared:currency")
+include(":shared:resourceprovider")
+include(":component:resources")
  

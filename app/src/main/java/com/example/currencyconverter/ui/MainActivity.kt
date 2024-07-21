@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.currencyconverter.App
 import com.example.currencyconverter.R
+import com.example.currencyconverter.choosecurrency.getChooseCurrencyScreen
 import com.example.currencyconverter.databinding.ActivityMainBinding
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
-import com.github.terrakok.cicerone.androidx.FragmentScreen
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (savedInstanceState == null) {
-            router.newRootChain(FragmentScreen { MainFragment.newInstance() })
+            router.newRootChain(getChooseCurrencyScreen())
         }
     }
 
