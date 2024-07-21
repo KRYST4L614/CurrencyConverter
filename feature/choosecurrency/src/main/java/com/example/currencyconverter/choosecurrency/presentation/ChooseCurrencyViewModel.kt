@@ -28,9 +28,6 @@ class ChooseCurrencyViewModel @Inject constructor(
         _state.value = UIState.Error(resourceProvider.getString(ComponentR.string.network_error))
     }
 
-    private fun openResult(value: Double, currencyFrom: String, currencyTo: String) =
-        router.openResult(value, currencyFrom, currencyTo)
-
     fun getCurrencies() = viewModelScope.launch(exceptionHandler) {
         _state.value = UIState.Loading
         lastContentState =
@@ -50,6 +47,9 @@ class ChooseCurrencyViewModel @Inject constructor(
             openResult(amount?.toDouble()!!, currencyFrom, currencyTo)
         }
     }
+
+    private fun openResult(value: Double, currencyFrom: String, currencyTo: String) =
+        router.openResult(value, currencyFrom, currencyTo)
 
     fun handleAmountChange(amount: String?) {
         val newAmountError =
