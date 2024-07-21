@@ -39,24 +39,9 @@ class ChooseCurrencyViewModel @Inject constructor(
                     .data
                     .keys
                     .toList()
-                    .sorted(),
-                0,
-                0
+                    .sorted()
             )
         _state.value = lastContentState!!
-    }
-
-    fun handleChooseCurrency(fromCurrencyPos: Int, toCurrencyPos: Int) {
-        lastContentState?.let {
-            if (it.fromCurrencyPos != fromCurrencyPos) {
-                lastContentState = it.copy(fromCurrencyPos = fromCurrencyPos)
-                _state.value = lastContentState!!
-            }
-            if (it.toCurrencyPos != toCurrencyPos) {
-                lastContentState = lastContentState!!.copy(toCurrencyPos = toCurrencyPos)
-                _state.value = lastContentState!!
-            }
-        }
     }
 
     fun handleConvert(amount: String?, currencyFrom: String, currencyTo: String) {

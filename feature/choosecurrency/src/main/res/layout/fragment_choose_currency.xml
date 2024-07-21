@@ -28,7 +28,7 @@
         android:id="@+id/content_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:constraint_referenced_ids="amount_layout, from_currency, swap_button, convert_button, to_currency, to_title, from_title" />
+        app:constraint_referenced_ids="amount_layout, from_currency, swap_button, convert_button, to_currency, to_input_layout, from_input_layout" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/amount_layout"
@@ -39,7 +39,7 @@
         android:hint="@string/amount_hint"
         android:textColorHint="?android:textColorHint"
         app:errorIconDrawable="@null"
-        app:layout_constraintBottom_toTopOf="@id/from_title"
+        app:layout_constraintBottom_toTopOf="@id/from_input_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -57,27 +57,24 @@
             tools:ignore="LabelFor" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/from_title"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/from_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="8dp"
-        android:text="@string/from_title"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/from_currency"
-        app:layout_constraintEnd_toEndOf="@id/from_currency"
-        app:layout_constraintStart_toStartOf="@id/from_currency" />
-
-    <Spinner
-        android:id="@+id/from_currency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="20dp"
-        android:layout_marginEnd="16dp"
+        android:hint="@string/from_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/swap_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/from_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/swap_button"
@@ -91,27 +88,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/to_title"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/to_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="8dp"
-        android:text="@string/to_title"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/to_currency"
-        app:layout_constraintEnd_toEndOf="@id/to_currency"
-        app:layout_constraintStart_toStartOf="@id/to_currency" />
-
-    <Spinner
-        android:id="@+id/to_currency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="20dp"
-        android:layout_marginStart="16dp"
+        android:hint="@string/to_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/swap_button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/to_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/convert_button"

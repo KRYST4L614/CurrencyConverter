@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
@@ -86,13 +85,17 @@ class ChooseCurrencyFragment : Fragment() {
                 R.id.currency,
                 content.currencies
             )
-            fromCurrency.adapter = adapter
-            toCurrency.adapter = adapter
+
+            fromCurrency.setAdapter(adapter)
+            toCurrency.setAdapter(adapter)
+
+            if (fromCurrency.text.isNullOrEmpty()) {
+                toCurrency.setText(content.currencies[0], false)
+                fromCurrency.setText(content.currencies[0], false)
+            }
+
             progress.isVisible = false
             contentGroup.isVisible = true
-
-            fromCurrency.setSelection(content.fromCurrencyPos)
-            toCurrency.setSelection(content.toCurrencyPos)
 
             amountLayout.error = content.amountError
             amountLayout.isErrorEnabled = content.amountError != null
@@ -119,16 +122,16 @@ class ChooseCurrencyFragment : Fragment() {
     private fun setClickListeners() {
         with(binding) {
             swapButton.setOnClickListener {
-                val fromCurrencyPos = fromCurrency.selectedItemPosition
-                fromCurrency.setSelection(toCurrency.selectedItemPosition)
-                toCurrency.setSelection(fromCurrencyPos)
+                val fromCurrencyText = fromCurrency.text
+                fromCurrency.setText(toCurrency.text, false)
+                toCurrency.setText(fromCurrencyText, false)
             }
 
             convertButton.setOnClickListener {
                 viewModel.handleConvert(
                     amount.text?.toString(),
-                    fromCurrency.selectedItem.toString(),
-                    toCurrency.selectedItem.toString()
+                    fromCurrency.text.toString(),
+                    toCurrency.text.toString()
                 )
 
                 if (amountLayout.error != null) {
@@ -138,34 +141,6 @@ class ChooseCurrencyFragment : Fragment() {
 
             error.retryButton.setOnClickListener {
                 viewModel.getCurrencies()
-            }
-
-            fromCurrency.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    viewModel.handleChooseCurrency(position, toCurrency.selectedItemPosition)
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {}
-
-            }
-
-            toCurrency.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    viewModel.handleChooseCurrency(fromCurrency.selectedItemPosition, position)
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {}
-
             }
 
             amount.doAfterTextChanged {
