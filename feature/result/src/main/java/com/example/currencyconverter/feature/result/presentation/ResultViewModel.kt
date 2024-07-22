@@ -29,9 +29,9 @@ class ResultViewModel @Inject constructor(
     fun close() = router.close()
 
     fun convertCurrencies(
-        value: Double,
         currencyFrom: String,
-        currencyTo: String
+        currencyTo: String,
+        value: Double
     ) = viewModelScope.launch(exceptionHandler) {
         _state.value = UIState.Loading
 

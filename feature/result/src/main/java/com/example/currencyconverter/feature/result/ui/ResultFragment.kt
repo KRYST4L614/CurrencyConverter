@@ -125,9 +125,9 @@ class ResultFragment : Fragment() {
     private fun convert() {
         with(requireArguments()) {
             viewModel.convertCurrencies(
-                getDouble(VALUE_KEY), getString(
-                    CURRENCY_FROM_KEY
-                )!!, getString(CURRENCY_TO_KEY)!!
+                getString(CURRENCY_FROM_KEY)!!,
+                getString(CURRENCY_TO_KEY)!!,
+                getDouble(VALUE_KEY)
             )
         }
     }
