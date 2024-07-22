@@ -5,5 +5,6 @@
     <string name="convert_button">Convert</string>
     <string name="from_title">From</string>
     <string name="to_title">To</string>
-    <string name="amount_error">Amount can not be empty</string>
+    <string name="amount_empty_error">Amount can not be empty</string>
+    <string name="amount_invalid_error">Amount must be a float</string>
 </resources>

@@ -43,7 +43,7 @@ class ChooseCurrencyViewModel @Inject constructor(
 
     fun handleConvert(amount: String?, currencyFrom: String, currencyTo: String) {
         handleAmountChange(amount)
-        if (isValidAmount(amount)) {
+        if (checkAmount(amount) == null) {
             openResult(amount?.toDouble()!!, currencyFrom, currencyTo)
         }
     }
@@ -52,8 +52,7 @@ class ChooseCurrencyViewModel @Inject constructor(
         router.openResult(value, currencyFrom, currencyTo)
 
     fun handleAmountChange(amount: String?) {
-        val newAmountError =
-            if (!isValidAmount(amount)) resourceProvider.getString(R.string.amount_error) else null
+        val newAmountError = checkAmount(amount)
 
         lastContentState?.let {
             if (it.amountError != newAmountError) {
@@ -63,7 +62,14 @@ class ChooseCurrencyViewModel @Inject constructor(
         }
     }
 
-    private fun isValidAmount(amount: String?): Boolean {
-        return !amount.isNullOrBlank()
+    private fun checkAmount(amount: String?): String? {
+        return when {
+            amount.isNullOrEmpty() -> resourceProvider.getString(R.string.amount_empty_error)
+
+            amount.toDoubleOrNull() == null ->
+                resourceProvider.getString(R.string.amount_invalid_error)
+
+            else -> null
+        }
     }
 }

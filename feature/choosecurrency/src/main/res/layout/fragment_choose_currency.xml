@@ -28,7 +28,7 @@
         android:id="@+id/content_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:constraint_referenced_ids="amount_layout, from_currency, swap_button, convert_button, to_currency, to_input_layout, from_input_layout" />
+        app:constraint_referenced_ids="amount_layout, swap_button, convert_button, to_input_layout, from_input_layout" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/amount_layout"
@@ -72,7 +72,8 @@
             android:id="@+id/from_currency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="none" />
+            android:inputType="none"
+            tools:ignore="LabelFor" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -103,7 +104,8 @@
             android:id="@+id/to_currency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="none" />
+            android:inputType="none"
+            tools:ignore="LabelFor" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
